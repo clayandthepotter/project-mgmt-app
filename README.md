@@ -1,6 +1,6 @@
 # The Project Mgmt App
 
-The use case for this app is:
+## The use case for this app is:
 * To create projects and assign them to collaborators and members of your team
 * To share operational workload
 * To identify potential bottlenecks in production 
