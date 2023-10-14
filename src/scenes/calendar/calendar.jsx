@@ -1,8 +1,8 @@
 import { useState } from "react";
-import FullCalendar, { formatDate } from "@fullcalendar/react";
+//import FullCalendar, { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
+//import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
 import {
   Box,
@@ -73,11 +73,11 @@ const Calendar = () => {
                   primary={event.title}
                   secondary={
                     <Typography>
-                      {formatDate(event.start, {
+                      {/* {formatDate(event.start, {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
-                      })}
+                      })} */}
                     </Typography>
                   }
                 />
@@ -88,12 +88,12 @@ const Calendar = () => {
 
         {/* CALENDAR */}
         <Box flex="1 1 100%" ml="15px">
-          <FullCalendar
+          {/* <FullCalendar */}
             height="75vh"
             plugins={[
               dayGridPlugin,
               timeGridPlugin,
-              interactionPlugin,
+              //interactionPlugin,
               listPlugin,
             ]}
             headerToolbar={{
