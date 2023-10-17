@@ -49,6 +49,7 @@ const Sidebar = () => {
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
+          display: 'flex-stretch'
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
