@@ -321,7 +321,7 @@ export const mockBarData = [
   {
     Stage: "Stage 1",
     "Stage 1": 137,
-    "Stage1Color": "hsl(307, 70%, 50%)",
+    "Stage1Color": "hsl(100, 50%, 100%)",
   },
   {
     Stage: "Stage 2",
@@ -343,28 +343,6 @@ export const mockBarData = [
     "Stage 5": 81,
     "Stage5Color": "hsl(190, 70%, 50%)",
   },
-  // {
-  //   country: "AL",
-  //   "hot dog": 66,
-  //   "hot dogColor": "hsl(208, 70%, 50%)",
-  //   burger: 111,
-  //   burgerColor: "hsl(334, 70%, 50%)",
-  //   kebab: 167,
-  //   kebabColor: "hsl(182, 70%, 50%)",
-  //   donut: 18,
-  //   donutColor: "hsl(76, 70%, 50%)",
-  // },
-  // {
-  //   country: "AM",
-  //   "hot dog": 80,
-  //   "hot dogColor": "hsl(87, 70%, 50%)",
-  //   burger: 47,
-  //   burgerColor: "hsl(141, 70%, 50%)",
-  //   kebab: 158,
-  //   kebabColor: "hsl(224, 70%, 50%)",
-  //   donut: 49,
-  //   donutColor: "hsl(274, 70%, 50%)",
-  // },
 ];
 
 export const mockPieData = [
@@ -396,7 +374,7 @@ export const mockPieData = [
     id: "scala",
     label: "scala",
     value: 584,
-    color: "hsl(344, 70%, 50%)",
+    color: "hsl(100, 10%, 50%)",
   },
 ];
 

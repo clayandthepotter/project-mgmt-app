@@ -76,7 +76,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "Stage", // changed
+        legend: isDashboard ? undefined : "Stages", // changed
         legendPosition: "middle",
         legendOffset: 32,
       }}
@@ -121,7 +121,7 @@ const BarChart = ({ isDashboard = false }) => {
       ]}
       role="application"
       barAriaLabel={function (e) {
-        return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
+        return e.id + ": " + e.formattedValue + " in stage: " + e.indexValue;
       }}
     />
   );
