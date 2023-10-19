@@ -230,7 +230,7 @@ const Dashboard = () => {
         </Box>
         {/* <Box
           gridColumn="span 4"
-          gridRow="span 2"
+          gridRow="span 2" 
           backgroundColor={colors.primary[400]}
           p="30px"
         >
