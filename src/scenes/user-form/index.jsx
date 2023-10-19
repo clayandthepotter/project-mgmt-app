@@ -1,14 +1,22 @@
+import React, { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 
-const Form = () => {
+const Form = ({ setFormData }) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [inputValue, setInputValue] = useState('');
 
-  const handleFormSubmit = (values) => {
-    console.log(values);
+  // const handleFormSubmit = (values) => {
+  //   console.log(values);
+  // };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormData(inputValue);
+    setInputValue('');
+    console.log(inputValue);
   };
 
   return (

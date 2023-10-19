@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team";
-import Contacts from "./scenes/contacts";
+import DisplayUser from "./scenes/contacts";
 import Bar from "./scenes/bar";
 import Form from "./scenes/user-form";
 import Pie from "./scenes/pie";
@@ -16,7 +16,14 @@ import ProjectForm from "./scenes/project-form";
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-
+  const [formData, setFormData] = useState(null);
+	// return (
+	// 	<div>
+	// 		<Form setFormData={setFormData} />
+	// 		<Contacts data={formData} />
+	// 	</div>
+	// 		);
+	
   return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
@@ -28,8 +35,8 @@ function App() {
 						<Routes>
 							<Route path='/' element={<Dashboard />} />
 							<Route path='/team' element={<Team />} />
-							<Route path='/contacts' element={<Contacts />} />
-							<Route path='/user-form' element={<Form />} />
+							<Route path='/contacts' element={<DisplayUser data={formData} />} />
+							<Route path='/user-form' element={<Form setFormData={setFormData}/>} />
 							<Route path='/project-form' element={<ProjectForm/>} />
 							<Route path='/bar' element={<Bar />} />
 							<Route path='/pie' element={<Pie />} />
@@ -41,5 +48,6 @@ function App() {
 		</ColorModeContext.Provider>
 	);
 }
+
 
 export default App;
