@@ -45,7 +45,7 @@ const Dashboard = () => {
         gap="20px"
       >
         {/* ROW 1 */}
-        <Box
+        {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -63,8 +63,8 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-        <Box
+        </Box> */}
+        {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -120,10 +120,10 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </Box> */}
 
         {/* ROW 2 */}
-        <Box
+        {/* <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -209,12 +209,28 @@ const Dashboard = () => {
               </Box>
             </Box>
           ))}
-        </Box>
+        </Box> */}
 
         {/* ROW 3 */}
         <Box
+          gridColumn="span 12"
+          gridRow="span 5"
+          backgroundColor={colors.primary[400]}
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ padding: "30px 30px 0 30px" }}
+          >
+            Projects
+          </Typography>
+          <Box height="250px" mt="-20px">
+
+          </Box>
+        </Box>
+        {/* <Box
           gridColumn="span 4"
-          gridRow="span 2"
+          gridRow="span 2" 
           backgroundColor={colors.primary[400]}
           p="30px"
         >
@@ -237,9 +253,9 @@ const Dashboard = () => {
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
-        </Box>
+        </Box> */}
         <Box
-          gridColumn="span 8"
+          gridColumn="span 12"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
@@ -248,7 +264,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Stages
+            Project Stages
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
