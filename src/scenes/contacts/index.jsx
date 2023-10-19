@@ -1,29 +1,21 @@
+import React from "react";
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import { mockDataTeam } from "../../data/mockData";
 
-const Contacts = () => {
+function DisplayUser({ data }) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
-    },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
     },
     {
       field: "phone",
@@ -36,23 +28,16 @@ const Contacts = () => {
       flex: 1,
     },
     {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
+      field: "department",
+      headerName: "Department",
       flex: 1,
     },
   ];
 
   return (
+    <div>
+      {data ? <p>Submitted Data: {data}</p> : <p className= "">No data submitted yet.</p>}
+  
     <Box m="20px">
       <Header
         title="CONTACTS"
@@ -91,13 +76,14 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={mockDataTeam}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
       </Box>
     </Box>
+    </div>
   );
 };
 
-export default Contacts;
+export default  DisplayUser;
