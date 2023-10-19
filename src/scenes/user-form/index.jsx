@@ -4,7 +4,7 @@ import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 
-const ProjectForm = () => {
+const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -13,7 +13,7 @@ const ProjectForm = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE PROJECT" subtitle="Create a New Project" />
+      <Header title="CREATE USER" subtitle="Create a New User Profile" />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -93,26 +93,13 @@ const ProjectForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label="Department"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                value={values.department}
+                name="department"
+                error={!!touched.department && !!errors.department}
+                helperText={touched.department && errors.department}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
@@ -139,8 +126,7 @@ const checkoutSchema = yup.object().shape({
     .string()
     .matches(phoneRegExp, "Phone number is not valid")
     .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
+  department: yup.string().required("required"),
 });
 const initialValues = {
   firstName: "",
@@ -151,4 +137,4 @@ const initialValues = {
   address2: "",
 };
 
-export default ProjectForm;
+export default Form;
