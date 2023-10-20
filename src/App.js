@@ -3,19 +3,16 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Team from "./scenes/team";
-import Contacts from "./scenes/contacts";
-import Bar from "./scenes/bar";
-import Form from "./scenes/user-form";
-import Pie from "./scenes/pie";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import ProjectForm from "./scenes/project-form";
+import ProjectList from './scenes/project-list';
 
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+	const [isProject, setIsProject] = useState([]);
 
   return (
 		<ColorModeContext.Provider value={colorMode}>
@@ -24,15 +21,19 @@ function App() {
 				<div className='app' style={{ display: 'flex-stretch' }}>
 					<Sidebar isSidebar={isSidebar} />
 					<main className='content'>
-						<Topbar setIsSidebar={setIsSidebar} />
+						<Topbar/>
 						<Routes>
 							<Route path='/' element={<Dashboard />} />
-							<Route path='/team' element={<Team />} />
-							<Route path='/contacts' element={<Contacts />} />
-							<Route path='/user-form' element={<Form />} />
-							<Route path='/project-form' element={<ProjectForm/>} />
-							<Route path='/bar' element={<Bar />} />
-							<Route path='/pie' element={<Pie />} />
+							<Route
+								path='/project-form'
+								element={
+									<ProjectForm
+										isProject={isProject}
+										setIsProject={setIsProject}
+									/>
+								}
+							/>
+							<Route path='/project-list' element={<ProjectList />} />
 							<Route path='/calendar' element={<Calendar />} />
 						</Routes>
 					</main>

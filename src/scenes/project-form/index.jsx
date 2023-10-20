@@ -1,15 +1,19 @@
-import { Box, Button, TextField } from "@mui/material";
+import { useState } from 'react';
+import { Box, Button, Card, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 
-const ProjectForm = () => {
+const ProjectForm = ({ isProject, setIsProject }) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
-    console.log(values);
+    	
+		console.log(isProject);
   };
+
+
 
   return (
 		<Box m='20px'>
@@ -148,8 +152,9 @@ const ProjectForm = () => {
 								type='submit'
 								color='secondary'
 								variant='contained'
+								onClick={() => setIsProject(values)}
 							>
-								Create New User
+								Create Project
 							</Button>
 						</Box>
 					</form>
@@ -175,12 +180,13 @@ const checkoutSchema = yup.object().shape({
 	projectPriority: yup.string().required('required'),
 });
 const initialValues = {
-  firstName: "",
-  lastName: "",
+  projectName: "",
+  id: "",
+  projectValue: "",
+  projectPriority: "",
+  contactName: "",
   email: "",
-  contact: "",
-  address1: "",
-  address2: "",
+	phoneNumber: "",
 };
 
 export default ProjectForm;
