@@ -7,16 +7,17 @@ import Header from "../../components/Header";
 
 const Form = ({ setFormData }) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(initialValues);
 
   // const handleFormSubmit = (values) => {
   //   console.log(values);
   // };
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    console.log('inputValue1')
     setFormData(inputValue);
-    setInputValue('');
-    console.log(inputValue);
+    setInputValue();
+    console.log(typeof(inputValue));
   };
 
   return (
@@ -35,8 +36,9 @@ const Form = ({ setFormData }) => {
           handleBlur,
           handleChange,
           handleSubmit,
+          setFormData
         }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <Box
               display="grid"
               gap="30px"

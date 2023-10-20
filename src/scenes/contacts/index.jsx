@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import { mockDataTeam } from "../../data/mockData";
 
-function DisplayUser({ data }) {
+function DisplayUser({ formData }) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -36,7 +36,7 @@ function DisplayUser({ data }) {
 
   return (
     <div>
-      {data ? <p>Submitted Data: {data}</p> : <p className= "">No data submitted yet.</p>}
+      {formData ? <p>Submitted Data: {formData}</p> : <p className= "">No data submitted yet.</p>}
   
     <Box m="20px">
       <Header
@@ -76,7 +76,7 @@ function DisplayUser({ data }) {
         }}
       >
         <DataGrid
-          rows={mockDataTeam}
+          rows={formData}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />

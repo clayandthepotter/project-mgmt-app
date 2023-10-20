@@ -17,12 +17,7 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   const [formData, setFormData] = useState(null);
-	// return (
-	// 	<div>
-	// 		<Form setFormData={setFormData} />
-	// 		<Contacts data={formData} />
-	// 	</div>
-	// 		);
+
 	
   return (
 		<ColorModeContext.Provider value={colorMode}>
@@ -35,7 +30,7 @@ function App() {
 						<Routes>
 							<Route path='/' element={<Dashboard />} />
 							<Route path='/team' element={<Team />} />
-							<Route path='/contacts' element={<DisplayUser data={formData} />} />
+							<Route path='/contacts' element={<DisplayUser formData={formData} />} />
 							<Route path='/user-form' element={<Form setFormData={setFormData}/>} />
 							<Route path='/project-form' element={<ProjectForm/>} />
 							<Route path='/bar' element={<Bar />} />
