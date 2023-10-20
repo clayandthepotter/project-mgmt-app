@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
@@ -13,7 +13,7 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 	const [isProject, setIsProject] = useState([]);
-
+	
   return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
@@ -24,15 +24,10 @@ function App() {
 						<Topbar/>
 						<Routes>
 							<Route path='/' element={<Dashboard />} />
-							<Route
-								path='/project-form'
-								element={
-									<ProjectForm
+							<Route path='/project-form' element={<ProjectForm
 										isProject={isProject}
 										setIsProject={setIsProject}
-									/>
-								}
-							/>
+									/>}/>
 							<Route path='/project-list' element={<ProjectList />} />
 							<Route path='/calendar' element={<Calendar />} />
 						</Routes>
@@ -42,5 +37,6 @@ function App() {
 		</ColorModeContext.Provider>
 	);
 }
+
 
 export default App;

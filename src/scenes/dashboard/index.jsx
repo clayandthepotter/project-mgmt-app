@@ -3,7 +3,6 @@ import { Box, Card, Typography, useTheme, CardContent, CardActions, Button } fro
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 
-
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
