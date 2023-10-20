@@ -1,62 +1,54 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import React from "react"
+import { Box, Card, Typography, useTheme, CardContent, CardActions, Button } from "@mui/material";
 import { tokens } from "../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../components/Header";
-import BarChart from "../../components/BarChart";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const card = (
+    <>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Word of the Day
+        </Typography>
+        <Typography variant="h5" component="div">
+          benevolent
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          adjective
+        </Typography>
+        <Typography variant="body2">
+          well meaning and kindly.
+          <br />
+          {'"a benevolent smile"'}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </>
+  );
+
 
   return (
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
       </Box>
 
       {/* GRID & CHARTS */}
       <Box
         display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="30px"
+        gridAutoColumns="repeat(16, 1fr)"
+        gap="40px"
       >
-
         <Box
-          gridColumn="span 12"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-        >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ padding: "20px 0 0 30px" }}>
-            Project Stages
-          </Typography>
-          <Box height="280px" mb='20px' pb='20px'>
-            <BarChart isDashboard={true} />
-          </Box>
-
-          <Box
-          gridColumn="span 12"
-          gridRow="span 10"
-          backgroundColor={colors.primary[400]}
+        gridColumn="span 12"
+        backgroundColor={colors.primary[400]}
+        padding='30px'
         >
           <Typography
             variant="h5"
@@ -67,93 +59,35 @@ const Dashboard = () => {
           </Typography>
           <Box
             display='grid'
-            gridTemplateColumns="repeat(12, 1fr)"
-            mt="20px" 
-            grid backgroundColor={colors.grey[500]}
-            gridAutoRows="40px"
+            gridTemplateColumns="repeat(16, 1fr)"
             gap="15px">
               <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
+                gridColumn='span 4'
                 >
-                  Project
+                  <Card variant="outlined">{card}</Card>
               </Box>
               <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
+                gridColumn='span 4'
                 >
-                  Project
+                  <Card variant="outlined">{card}</Card>
               </Box>
               <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
+                gridColumn='span 4'
                 >
-                  Project
+                  <Card variant="outlined">{card}</Card>
               </Box>
               <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
+                gridColumn='span 4'
                 >
-                  Project
+                  <Card variant="outlined">{card}</Card>
               </Box>
               <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
+                gridColumn='span 4'
                 >
-                  Project
-              </Box>
-              <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
-                >
-                  Project
-              </Box>
-              <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
-                >
-                  Project
-              </Box>
-              <Box
-                gridColumn='span 3'
-                gridRow='span 3'
-                backgroundColor={colors.primary[600]}
-                m='10px'
-                p='1em'
-
-                >
-                  Project
+                  <Card variant="outlined">{card}</Card>
               </Box>
           </Box>
-        </Box>
+          
         </Box>
       </Box>
     </Box>
