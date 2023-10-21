@@ -1,59 +1,16 @@
-// import { useState } from 'react';
+import React from 'react';
 import { Box, Button, /*Card,*/ TextField } from '@mui/material';
-import { useFormik, Formik } from 'formik';
-import * as Yup from 'yup';
-// import useMediaQuery from '@mui/material/useMediaQuery';
+import { Formik } from 'formik';
 import Header from '../../components/Header';
-// import { useRouter } from 
+// import addProject from './api'
 
-const ProjectForm = () => {
-	// const isNonMobile = useMediaQuery('min-width:600px');
-
-	// const handleFormSubmit = (values) => {
-
-	// 	console.log(isProject);
-	// };
-
-	const formik = useFormik({
-		initialValues: {
-			projectName: '',
-			id: '',
-			projectValue: '',
-			projectPriority: '',
-			contactName: '',
-			email: '',
-			phoneNumber: '',
-		},
-		// validate form
-
-		validationSchema: Yup.object().shape({
-			projectName: Yup.string().required('required'),
-			id: Yup.string().required('required'),
-			email: Yup.string().email('invalid email').required('required'),
-			phoneNumber: Yup.string()
-				.matches(phoneRegExp, 'Phone number is not valid')
-				.required('required'),
-			contactName: Yup.string().required('required'),
-			projectValue: Yup.string().required('required'),
-			projectPriority: Yup.string().required('required'),
-		}),
-
-		// submit form
-		onSubmit: (values) => {
-			console.log(values);
-		},
-	});
+const ProjectForm = ({ formik, handleAddProject }) => {
 
 	return (
 		<Box m='20px'>
 			<Header title='PROJECT FORM' subtitle='Create a New Project' />
 
-			<Formik
-			// onSubmit={formik.handleFormSubmit}
-			// initialValues={initialValues}
-			// validationSchema={validationSchema}
-			>
-				{({ errors, touched }) => (
+			<Formik>
 					<form onSubmit={formik.handleSubmit}>
 						<Box
 							display='grid'
@@ -207,18 +164,17 @@ const ProjectForm = () => {
 								type='submit'
 								color='secondary'
 								variant='contained'
-								// onClick={() => setIsProject(values)}
+								onClick={() => {handleAddProject()}}
 							>
 								Create Project
 							</Button>
 						</Box>
 					</form>
-				)}
 			</Formik>
 		</Box>
 	);
 };
 
-const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
+// const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 export default ProjectForm;

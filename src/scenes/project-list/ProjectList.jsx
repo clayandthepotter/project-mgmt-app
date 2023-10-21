@@ -1,36 +1,56 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import React from "react";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
 import Header from "../../components/Header";
+import getProjects from '../../api'
 
 const ProjectList = () => {
 
+  
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", 
+      headerName: "ID", 
+      flex: .5,
+    },
     {
-      field: "name",
-      headerName: "Name",
+      field: "projectName",
+      headerName: "Project Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "projectValue",
+      headerName: "Project Value",
+      flex: 1,
+    },
+    {
+      field: "projectPriorty",
+      headerName: "Project Priority",
+      flex: 1,
+    },
+    {
+      field: "contactName",
+      headerName: "Contact Name",
       flex: 1,
     },
     {
       field: "email",
       headerName: "Email",
+      flex: .5,
+    },
+    {
+      field: "phoneNumber",
+      headerName: "Phone Number",
       flex: 1,
     },
   ];
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members" />
+      <Header title="PROJECTS" subtitle="Manage your projects" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -60,7 +80,7 @@ const ProjectList = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={[]} columns={columns} />
       </Box>
     </Box>
   );
