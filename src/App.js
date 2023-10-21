@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
-import Dashboard from "./scenes/dashboard";
+import Dashboard from "./scenes/dashboard/Dashboard";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
-import ProjectForm from "./scenes/project-form";
-import ProjectList from './scenes/project-list';
+import Calendar from "./scenes/calendar/Calendar";
+import ProjectForm from "./scenes/project-form/ProjectForm";
+import ProjectList from './scenes/project-list/ProjectList';
 
 function App() {
   const [theme, colorMode] = useMode();
-  const [isSidebar, setIsSidebar] = useState(true);
 	const [isProject, setIsProject] = useState([]);
 	
   return (
@@ -19,7 +18,7 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
 				<div className='app' style={{ display: 'flex-stretch' }}>
-					<Sidebar isSidebar={isSidebar} />
+					<Sidebar />
 					<main className='content'>
 						<Topbar/>
 						<Routes>

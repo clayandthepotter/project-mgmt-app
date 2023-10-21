@@ -11,7 +11,7 @@ const Dashboard = () => {
     <>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
+          {}
         </Typography>
         <Typography variant="h5" component="div">
           benevolent
@@ -63,26 +63,31 @@ const Dashboard = () => {
             gap="15px">
               <Box
                 gridColumn='span 4'
+                className="@media(min-width: 50em)"
                 >
                   <Card variant="outlined">{card}</Card>
               </Box>
               <Box
                 gridColumn='span 4'
+                className="@media(min-width: 50em)"
                 >
                   <Card variant="outlined">{card}</Card>
               </Box>
               <Box
                 gridColumn='span 4'
+                className="@media(min-width: 50em)"
                 >
                   <Card variant="outlined">{card}</Card>
               </Box>
               <Box
                 gridColumn='span 4'
+                className="@media(min-width: 50em)"
                 >
                   <Card variant="outlined">{card}</Card>
               </Box>
               <Box
                 gridColumn='span 4'
+                className="@media(min-width: 50em)"
                 >
                   <Card variant="outlined">{card}</Card>
               </Box>
