@@ -164,7 +164,6 @@ const ProjectForm = ({ formik, handleAddProject }) => {
 								type='submit'
 								color='secondary'
 								variant='contained'
-								onClick={() => {handleAddProject()}}
 							>
 								Create Project
 							</Button>

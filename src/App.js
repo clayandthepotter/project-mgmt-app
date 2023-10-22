@@ -13,6 +13,24 @@ import * as Yup from 'yup';
 import { getProjects, addProject } from './api'
 
 function App() {
+
+	// const express = require('express');
+	// const app = express();
+	// const PORT = 3001;
+
+	// app.use(express.json());
+
+	// app.post('/api/resource', (req, res) => {
+	// 	const data = req.body;
+	// 	// Store the data in a database or however you wish
+	// 	res.json({ message: 'Data received and stored!' });
+	// });
+
+	// app.listen(PORT, () => {
+	// 	console.log(`Server running on http://localhost:${PORT}`);
+	// });
+
+
   const [theme, colorMode] = useMode();
 	const [projects, setProjects] = useState([]);
 	useEffect(() => {
@@ -54,6 +72,10 @@ function App() {
 	// submit form
 	onSubmit: (values) => {
 		console.log(values);
+		addProject(values);
+		formik.resetForm();
+		getProjects()
+
 		// router.push({ pathname: '' });
 	},
 });

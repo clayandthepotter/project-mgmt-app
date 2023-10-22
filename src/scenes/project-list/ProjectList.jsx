@@ -7,7 +7,7 @@ import getProjects from '../../api'
 
 const ProjectList = () => {
 
-  
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
