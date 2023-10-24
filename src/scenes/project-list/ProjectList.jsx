@@ -7,6 +7,10 @@ import getProjects from '../../api'
 
 const ProjectList = () => {
 
+  // const [projects, setProjects] = useState([]);
+  // useEffect(() => {
+  //   setProjects
+  // }, [])
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
