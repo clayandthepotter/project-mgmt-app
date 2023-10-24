@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Box, Card, Typography, useTheme, CardContent, CardActions, Button } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
@@ -7,20 +7,28 @@ const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  const [projectData, setProjectData] = useState([]);
+
+  useEffect(() => {
+	fetch('http://localhost:3001/projects')
+		.then((data) => data.json())
+		.then((data) => setProjectData(data));
+  }, []);
+
   // const card = (
   //   <>
   //     <CardContent>
   //       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-  //         {}Project Name
+  //         {}
   //       </Typography>
   //       <Typography variant="h5" component="div">
-  //         Heading
+  //         {}
   //       </Typography>
   //       <Typography sx={{ mb: 1.5 }} color="text.secondary">
-  //         Subheading
+  //         {}
   //       </Typography>
   //       <Typography variant="body2">
-  //         Content
+  //         {}
   //       </Typography>
   //     </CardContent>
   //     <CardActions>

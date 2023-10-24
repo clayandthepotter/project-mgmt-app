@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
@@ -7,10 +7,14 @@ import getProjects from '../../api'
 
 const ProjectList = () => {
 
-  // const [projects, setProjects] = useState([]);
-  // useEffect(() => {
-  //   setProjects
-  // }, [])
+  
+  const [projectData, setProjectData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/projects')
+			.then((data) => data.json())
+			.then((data) => setProjectData(data));
+  }, [])
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -84,7 +88,7 @@ const ProjectList = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={[]} columns={columns} />
+        <DataGrid checkboxSelection rows={projectData} columns={columns} />
       </Box>
     </Box>
   );

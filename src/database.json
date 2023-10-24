@@ -1,64 +1,10 @@
 {
   "projects": [
     {
-      "values": {
-        "projectName": "Project 1",
-        "id": "1",
-        "projectValue": "15261659",
-        "projectPriority": "1",
-        "contactName": "Clayton Prickett",
-        "email": "clayton.a.prickett@gmail.com",
-        "phoneNumber": "8179335425"
-      },
-      "id": 1
-    },
-    {
-      "values": {
-        "projectName": "Project 2",
-        "id": "2",
-        "projectValue": "15261659",
-        "projectPriority": "1",
-        "contactName": "Clayton Prickett",
-        "email": "clayton.a.prickett@gmail.com",
-        "phoneNumber": "8179335425"
-      },
-      "id": 2
-    },
-    {
-      "values": {
-        "projectName": "Project 3",
-        "id": "3",
-        "projectValue": "15261659",
-        "projectPriority": "1",
-        "contactName": "Clayton Prickett",
-        "email": "clayton.a.prickett@gmail.com",
-        "phoneNumber": "8179335425"
-      },
-      "id": 3
-    },
-    {
       "projectName": "Project 1",
-      "id": "4",
+      "id": "1",
       "projectValue": "15261659",
       "projectPriority": "1",
-      "contactName": "Clayton Prickett",
-      "email": "clayton.a.prickett@gmail.com",
-      "phoneNumber": "8179335425"
-    },
-    {
-      "projectName": "Project 5",
-      "id": "5",
-      "projectValue": "15261659",
-      "projectPriority": "1",
-      "contactName": "Clayton Prickett",
-      "email": "clayton.a.prickett@gmail.com",
-      "phoneNumber": "8179335425"
-    },
-    {
-      "projectName": "Project 6",
-      "id": "6",
-      "projectValue": "1651620",
-      "projectPriority": "2",
       "contactName": "Clayton Prickett",
       "email": "clayton.a.prickett@gmail.com",
       "phoneNumber": "8179335425"
