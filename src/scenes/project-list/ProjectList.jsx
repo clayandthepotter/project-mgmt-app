@@ -35,7 +35,7 @@ const ProjectList = () => {
       flex: 1,
     },
     {
-      field: "projectPriorty",
+      field: "projectPriority",
       headerName: "Project Priority",
       flex: 1,
     },

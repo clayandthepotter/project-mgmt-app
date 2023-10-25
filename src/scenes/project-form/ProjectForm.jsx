@@ -83,7 +83,7 @@ const ProjectForm = ({ formik, handleAddProject }) => {
 								label='Project Priority'
 								onBlur={formik.handleBlur}
 								onChange={formik.handleChange}
-								value={formik.values.contact}
+								value={formik.values.projectPriority}
 								name='projectPriority'
 								error={
 									!!formik.touched.projectPriority &&
