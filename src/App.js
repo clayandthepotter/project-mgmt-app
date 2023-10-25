@@ -5,7 +5,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard/Dashboard";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/Calendar";
+// import Calendar from "./scenes/calendar/Calendar";
 import ProjectForm from "./scenes/project-form/ProjectForm";
 import ProjectList from './scenes/project-list/ProjectList';
 import { useFormik } from 'formik';
@@ -37,11 +37,14 @@ function App() {
 		setProjects(getProjects());
 	}, []);
 
+
+	
 	const handleAddProject = async (project) => {
 		addProject(project);
 		const updatedProjects = await getProjects();
 		setProjects(updatedProjects);
 	};
+
 	const phoneRegExp =
 		/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 	
@@ -54,6 +57,7 @@ function App() {
 			contactName: '',
 			email: '',
 			phoneNumber: '',
+
 		},
 		// validate form
 
@@ -66,18 +70,21 @@ function App() {
 				.required('required'),
 			contactName: Yup.string().required('required'),
 			projectValue: Yup.string().required('required'),
-			projectPriority: Yup.string().required('required'),
+			
 		}),
 
 	// submit form
-	onSubmit: (values) => {
-		console.log(values);
-		addProject(values);
-		formik.resetForm();
-		getProjects()
+	
+		onSubmit: (values) => {
+			console.log(values);
+			addProject(values);
+			formik.resetForm();
+			getProjects()
 
-		// router.push({ pathname: '' });
-	},
+		
+		},
+
+	
 });
 	
   return (
@@ -97,7 +104,7 @@ function App() {
 										formik={formik}
 										handleAddProject={handleAddProject}/>}/>
 							<Route path='/project-list' element={<ProjectList getProjects={getProjects}/>}/>
-							<Route path='/calendar' element={<Calendar />} />
+							{/* <Route path='/calendar' element={<Calendar />} /> */}
 						</Routes>
 					</main>
 				</div>

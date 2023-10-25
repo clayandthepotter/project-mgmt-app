@@ -8,6 +8,15 @@
       "contactName": "Clayton Prickett",
       "email": "clayton.a.prickett@gmail.com",
       "phoneNumber": "8179335425"
+    },
+    {
+      "projectName": "project 7",
+      "id": "7",
+      "projectValue": "12",
+      "projectPriority": "Priority",
+      "contactName": "new",
+      "email": "bew@gmail.com",
+      "phoneNumber": "09809887654"
     }
   ]
 }
