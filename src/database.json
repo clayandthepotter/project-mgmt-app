@@ -1,5 +1,13 @@
 {
   "projects": [
-
+    {
+      "projectName": "project 1",
+      "id": "1",
+      "projectValue": "200k",
+      "projectPriority": "Priority",
+      "contactName": "billy mays",
+      "email": "billymays@gmail.com",
+      "phoneNumber": "1231231234"
+    }
   ]
 }

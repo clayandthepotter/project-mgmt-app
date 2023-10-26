@@ -76,9 +76,9 @@ const Dashboard = () => {
 							<Typography variant='h5' component='div'>
 								{projects.projectValue}
 							</Typography>
-							<Typography sx={{ mb: 1.5 }} color='text.secondary'>
+							{/* <Typography sx={{ mb: 1.5 }} color='text.secondary'>
 								{projects.projectPriority}
-							</Typography>
+							</Typography> */}
 							<Typography variant='body2'>
 								{projects.projectPriority}
 							</Typography>
