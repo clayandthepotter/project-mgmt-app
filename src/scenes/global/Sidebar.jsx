@@ -104,7 +104,7 @@ const Sidebar = () => {
                   Clayton
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Project Lead
                 </Typography>
               </Box>
             </Box>
