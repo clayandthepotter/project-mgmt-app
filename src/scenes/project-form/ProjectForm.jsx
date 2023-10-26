@@ -2,9 +2,18 @@ import React from 'react';
 import { Box, Button, /*Card,*/ TextField } from '@mui/material';
 import { Formik } from 'formik';
 import Header from '../../components/Header';
-// import addProject from './api'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { useState } from 'react';
 
 const ProjectForm = ({ formik, handleAddProject }) => {
+	const [priority, setPriority] = React.useState('');
+	const handlePriorityChange = (e) => {
+		setPriority(e.target.value);
+	};
+	
 
 	return (
 		<Box m='20px'>
@@ -76,27 +85,23 @@ const ProjectForm = ({ formik, handleAddProject }) => {
 								}
 								sx={{ gridColumn: 'span 3' }}
 							/>
-							<TextField
-								fullWidth
-								variant='filled'
-								type='text'
-								label='Project Priority'
-								onBlur={formik.handleBlur}
-								onChange={formik.handleChange}
-								value={formik.values.projectPriority}
-								name='projectPriority'
-								error={
-									!!formik.touched.projectPriority &&
-									!!formik.errors.projectPriority
-								}
-								helperText={
-									formik.touched.projectPriority &&
-									formik.errors.projectPriority
-										? formik.errors.projectPriority
-										: formik.projectPriority
-								}
-								sx={{ gridColumn: 'span 3' }}
-							/>
+							<FormControl variant="filled" sx={{ gridColumn: 'span 3' }}>
+        						<InputLabel id="demo-simple-select-filled-label">Project Priority</InputLabel>
+        							<Select
+										labelId="demo-simple-select-filled-label"
+										id="demo-simple-select-filled"
+										value={formik.values.projectPriority}
+										onChange={formik.handleChange}
+										name='projectPriority'
+									>
+									<MenuItem value="">
+										<em>None</em>
+									</MenuItem>
+									<MenuItem value='Urgent'>Urgent</MenuItem>
+									<MenuItem value='Priority'>Priority</MenuItem>
+									<MenuItem value='Routine'>Routine</MenuItem>
+									</Select>
+							 </FormControl>
 							<TextField
 								fullWidth
 								variant='filled'
@@ -158,6 +163,7 @@ const ProjectForm = ({ formik, handleAddProject }) => {
 								}
 								sx={{ gridColumn: 'span 3' }}
 							/>
+							 
 						</Box>
 						<Box display='flex' justifyContent='end' mt='20px'>
 							<Button
