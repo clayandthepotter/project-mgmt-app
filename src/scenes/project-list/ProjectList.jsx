@@ -4,26 +4,19 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 
-
-
 const ProjectList = () => {
-
-  
   const [projectData, setProjectData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/projects')
-			.then((data) => data.json())
-			.then((data) => setProjectData(data));
-  }, [])
+    fetch("http://localhost:3001/projects")
+      .then((data) => data.json())
+      .then((data) => setProjectData(data));
+  }, []);
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
-    { field: "id", 
-      headerName: "ID", 
-      flex: .5,
-    },
+    { field: "id", headerName: "ID", flex: 0.5 },
     {
       field: "projectName",
       headerName: "Project Name",
@@ -48,7 +41,7 @@ const ProjectList = () => {
     {
       field: "email",
       headerName: "Email",
-      flex: .5,
+      flex: 0.5,
     },
     {
       field: "phoneNumber",
@@ -60,15 +53,11 @@ const ProjectList = () => {
   return (
     <Box m="20px">
       <Header title="PROJECTS" subtitle="Manage your projects" />
-        <Box display='flex' justifyContent='end' mt='20px'>
-          <Button
-						type='submit'
-						color='secondary'
-						variant='contained'
-					>
-						Delete
-					</Button>
-        </Box>
+      <Box display="flex" justifyContent="end" mt="20px">
+        <Button type="submit" color="secondary" variant="contained">
+          Delete
+        </Button>
+      </Box>
       <Box
         m="40px 0 0 0"
         height="75vh"
