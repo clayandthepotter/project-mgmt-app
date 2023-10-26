@@ -57,7 +57,6 @@ function App() {
 			contactName: '',
 			email: '',
 			phoneNumber: '',
-
 		},
 		// validate form
 
