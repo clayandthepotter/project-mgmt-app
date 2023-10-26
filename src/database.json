@@ -1,22 +1,14 @@
 {
   "projects": [
     {
-      "projectName": "Project 1",
+      "projectName": "project 1",
       "id": "1",
-      "projectValue": "15261659",
-      "projectPriority": "1",
-      "contactName": "Clayton Prickett",
-      "email": "clayton.a.prickett@gmail.com",
-      "phoneNumber": "8179335425"
-    },
-    {
-      "projectName": "project 7",
-      "id": "7",
-      "projectValue": "12",
+      "projectValue": "200k",
       "projectPriority": "Priority",
-      "contactName": "new",
-      "email": "bew@gmail.com",
-      "phoneNumber": "09809887654"
+      "contactName": "billy mays",
+      "email": "billymays@gmail.com",
+      "phoneNumber": "1231231234",
+      "Actions": ""
     }
   ]
 }
