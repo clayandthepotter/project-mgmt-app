@@ -4,14 +4,26 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 
-const ProjectList = () => {
-  const [projectData, setProjectData] = useState([]);
+
+
+
+const ProjectList = ({deleteProject, setProjects, getProjects, projects}) => {
+  // const [projectData, setProjectData] = useState([]);
+  const [selectedRows, setSelectedRows] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/projects")
       .then((data) => data.json())
-      .then((data) => setProjectData(data));
+      .then((data) => setProjects(data));
   }, []);
+
+  const handleDelete = (projectIds) => { 
+  // console.log(`this is your projectIds: ${projectIds}`) 
+    //projectIds.map(id => deleteProject(id))
+   // setProjects(getProjects());
+    setSelectedRows([]); 
+  };
+ 
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -54,7 +66,7 @@ const ProjectList = () => {
     <Box m="20px">
       <Header title="PROJECTS" subtitle="Manage your projects" />
       <Box display="flex" justifyContent="end" mt="20px">
-        <Button type="submit" color="secondary" variant="contained">
+        <Button type="submit" color="secondary" variant="contained" onClick={handleDelete(selectedRows)}>
           Delete
         </Button>
       </Box>
@@ -87,7 +99,11 @@ const ProjectList = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={projectData} columns={columns} />
+        <DataGrid checkboxSelection rows={projects} columns={columns} onRowSelectionModelChange={(newSelection) => {
+          // console.log(newSelection);
+          // console.log(newSelection.selectionModel);
+          setSelectedRows(newSelection);
+        }} />
       </Box>
     </Box>
   );

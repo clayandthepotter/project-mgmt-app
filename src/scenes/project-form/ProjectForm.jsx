@@ -8,11 +8,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
-const ProjectForm = ({ formik, handleAddProject }) => {
-	const [priority, setPriority] = React.useState('');
-	const handlePriorityChange = (e) => {
-		setPriority(e.target.value);
-	};
+const ProjectForm = ({ formik }) => {
+	
 	
 
 	return (

@@ -10,7 +10,7 @@ import ProjectForm from "./scenes/project-form/ProjectForm";
 import ProjectList from './scenes/project-list/ProjectList';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { getProjects, addProject } from './api'
+import { getProjects, addProject, deleteProject } from './api'
 
 function App() {
 
@@ -39,11 +39,17 @@ function App() {
 
 
 	
-	const handleAddProject = async (project) => {
-		addProject(project);
+	const handleAddProject = async (projects) => {
+		addProject(projects);
 		const updatedProjects = await getProjects();
 		setProjects(updatedProjects);
 	};
+	
+	// const handleDeleteProject = async (projects) => {
+	// 	deleteProject(projects.id);
+	// 	// const updatedProjects = await getProjects();
+	// 	// setProjects(updatedProjects);
+	// };
 
 	const phoneRegExp =
 		/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
@@ -102,7 +108,7 @@ function App() {
 									<ProjectForm
 										formik={formik}
 										handleAddProject={handleAddProject}/>}/>
-							<Route path='/project-list' element={<ProjectList getProjects={getProjects}/>}/>
+							<Route path='/project-list' element={<ProjectList getProjects={getProjects} setProjects={setProjects} projects={projects} deleteProject={deleteProject} />}/>
 							{/* <Route path='/calendar' element={<Calendar />} /> */}
 						</Routes>
 					</main>

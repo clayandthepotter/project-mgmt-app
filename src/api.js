@@ -22,3 +22,15 @@ export const addProject = async (project) => {
 	// const database = await response.json();
 	return response;
 };
+
+
+export const deleteProject = async (id) => {
+	const response = await fetch (`http://localhost:3001/projects/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
+
+	return response;
+}
