@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState  } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
@@ -14,30 +14,9 @@ import { getProjects, addProject } from './api'
 
 function App() {
 
-	// const express = require('express');
-	// const app = express();
-	// const PORT = 3001;
-
-	// app.use(express.json());
-
-	// app.post('/api/resource', (req, res) => {
-	// 	const data = req.body;
-	// 	// Store the data in a database or however you wish
-	// 	res.json({ message: 'Data received and stored!' });
-	// });
-
-	// app.listen(PORT, () => {
-	// 	console.log(`Server running on http://localhost:${PORT}`);
-	// });
-
 	const [id, setId] = useState('');
   const [theme, colorMode] = useMode();
 	
-	// useEffect(() => {
-	// 	setProjects(getProjects());
-	// }, []);
-
-
 	const phoneRegExp =
 		/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 	
@@ -56,19 +35,19 @@ function App() {
 			// validate form
 
 			validationSchema: Yup.object().shape({
-				projectName: Yup.string().required('required'),
-				id: Yup.string().required('required'),
+				projectName: Yup.string().required(),
+				id: Yup.string().required(),
 				email: Yup.string()
 					.email('invalid email')
-					.required('required'),
+					.required(),
 				phoneNumber: Yup.string()
 					.matches(phoneRegExp, 'Phone number is not valid')
-					.required('required'),
-				Assignee: Yup.string().required('required'),
-				contactName: Yup.string().required('required'),
-				projectValue: Yup.string().required('required'),
-				projectPriority: Yup.string().required('required'),
-        projectDescription: Yup.string().required('required'),
+					.required(),
+				assignee: Yup.string().required(),
+				contactName: Yup.string().required(),
+				projectValue: Yup.string().required(),
+				projectPriority: Yup.string().required(),
+        projectDescription: Yup.string().required(),
 			}),
 
 			// submit form
@@ -77,8 +56,8 @@ function App() {
 				console.log(values);
 				addProject(values);
 				formik.resetForm();
-				getProjects();
 				setId('');
+				getProjects();
 			},
 		});
 	

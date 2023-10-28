@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box,	Card,	Typography,	useTheme,	CardContent, CardActions } from '@mui/material';
+import { Box,	Card,	Typography,	useTheme,	CardContent, CardActions, Button } from '@mui/material';
 import { tokens } from '../../theme';
 import Header from '../../components/Header';
 import InfoModal from '../../components/InfoModal';
@@ -20,6 +20,18 @@ const Dashboard = () => {
 			.then((data) => setProjectData(data));
 	}, []);
 
+  const getPriorityColor = (projectPriority) => {
+    if (projectPriority === 'Urgent') {
+			return colors.redAccent[600]; // Set color for High priority
+		} else if (projectPriority === 'Priority') {
+			return 'orange'; // Set color for Medium priority
+		} else if (projectPriority === 'Routine') {
+			return colors.greenAccent[400]; // Set color for Low priority
+		} else {
+			return 'black'; // Default color for other cases
+		}
+  };
+
 	return (
 		<Box mx='20px'>
 			<Header
@@ -33,10 +45,13 @@ const Dashboard = () => {
 						sx={{
 							backgroundColor: colors.primary[400],
 							minWidth: '200px',
-							gridColumn: 'auto',
+							display: 'flex',
+							flexDirection: 'column',
+							justifyContent: 'left',
+							alignItems: 'stretch',
 						}}
 					>
-						<CardContent sx={{ alignContent: 'space-between' }}>
+						<CardContent sx={{ alignContent: 'stretch' }}>
 							<Typography
 								sx={{ fontSize: 20 }}
 								color='text.primary'
@@ -54,7 +69,7 @@ const Dashboard = () => {
 							<Typography
 								variant='h6'
 								component='div'
-								sx={{ color: colors.greenAccent[400] }}
+								sx={{ color: colors.grey[100] }}
 							>
 								{projects.projectValue}
 							</Typography>
@@ -64,14 +79,23 @@ const Dashboard = () => {
 							>
 								<em>Project Priority</em>
 							</Typography>
-							<Typography variant='body2'>
+							<Typography
+								variant='body2'
+								sx={{
+									color: getPriorityColor(projects.projectPriority),
+								}}
+							>
 								{projects.projectPriority}
 							</Typography>
 						</CardContent>
-
-						<CardActions sx={{}}>
+						<CardActions sx={{ justifyContent: 'space-between' }}>
+							{/* <Button size='small' color='primary'>
+                Edit
+              </Button>
+              <Button size='small' color='secondary'>
+                Delete
+              </Button> */}
 							<InfoModal
-								size='small'
 								contactName={projects.contactName}
 								email={projects.email}
 								assignee={projects.assignee}

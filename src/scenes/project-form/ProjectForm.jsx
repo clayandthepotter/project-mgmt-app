@@ -120,14 +120,13 @@ const ProjectForm = ({ formik, id, setId }) => {
 							sx={{ gridColumn: 'span 2' }}
 							variant='filled'
 							type='text'
-							label='assignee'
+							label='Assignee'
 							onBlur={formik.handleBlur}
 							onChange={formik.handleChange}
 							value={formik.values.assignee}
 							name='assignee'
 							error={
-								!!formik.touched.assignee &&
-								!!formik.errors.assignee
+								!!formik.touched.assignee && !!formik.errors.assignee
 							}
 						/>
 						<TextField
@@ -179,7 +178,7 @@ const ProjectForm = ({ formik, id, setId }) => {
 							fullWidth
 							required
 							sx={{ gridColumn: 'span 4' }}
-							id='projectDescription'
+							// id='projectDescription'
 							label='Project Description'
 							multiline
 							rows={4}
@@ -194,19 +193,13 @@ const ProjectForm = ({ formik, id, setId }) => {
 								!!formik.errors.projectDescription
 							}
 						/>
-					</Box>
-					<Box
-						display='grid'
-						gap='30px'
-						gridTemplateColumns='repeat(4, minmax(0, 1fr))'
-					>
 						<Button
 							fullHeight
 							type='submit'
 							color='secondary'
 							variant='contained'
 							size='large'
-							sx={{ gridColumn: '4', gridRow: '2' }}
+							sx={{ gridColumn: '4' }}
 						>
 							SUBMIT
 						</Button>

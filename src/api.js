@@ -6,11 +6,6 @@ export const getProjects = async () => {
 	return database.projects;
 };
 
-// export const addProject = async (project) => {
-// 	database.projects.push(project);
-// 	// In a real-world scenario, you'd save this to the backend or local storage.
-// };
-
 export const addProject = async (project) => {
 	const response = await fetch('http://localhost:3001/projects', {
 		method: 'POST',
@@ -20,5 +15,15 @@ export const addProject = async (project) => {
 		body: JSON.stringify(project),
 	});
 	// const database = await response.json();
+	return response;
+};
+
+export const deleteProject = async (projectId) => {
+	const response = await fetch(
+		`http://localhost:3001/projects/${projectId}`,
+		{
+			method: 'DELETE',
+		}
+	);
 	return response;
 };
