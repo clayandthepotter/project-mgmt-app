@@ -1,5 +1,15 @@
 {
   "projects": [
-
+    {
+      "projectName": "Create delete button",
+      "id": 9374,
+      "projectValue": "n/a",
+      "projectPriority": "Routine",
+      "assignee": "Clayton",
+      "contactName": "Clayton Prickett",
+      "email": "clayton.a.prickett@gmail.com",
+      "phoneNumber": "8179335425",
+      "projectDescription": "Create delete button for project list"
+    }
   ]
 }

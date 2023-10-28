@@ -30,61 +30,57 @@ function App() {
 	// 	console.log(`Server running on http://localhost:${PORT}`);
 	// });
 
-
+	const [id, setId] = useState('');
   const [theme, colorMode] = useMode();
-	const [projects, setProjects] = useState([]);
-	useEffect(() => {
-		setProjects(getProjects());
-	}, []);
-
-
 	
-	const handleAddProject = async (project) => {
-		addProject(project);
-		const updatedProjects = await getProjects();
-		setProjects(updatedProjects);
-	};
+	// useEffect(() => {
+	// 	setProjects(getProjects());
+	// }, []);
+
 
 	const phoneRegExp =
 		/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 	
 		const formik = useFormik({
-		initialValues: {
-			projectName: '',
-			id: '',
-			projectValue: '',
-			projectPriority: '',
-			contactName: '',
-			email: '',
-			phoneNumber: '',
-		},
-		// validate form
+			initialValues: {
+				projectName: '',
+				id: '',
+				projectValue: '',
+				projectPriority: '',
+				assignee: '',
+				contactName: '',
+				email: '',
+				phoneNumber: '',
+				projectDescription: '',
+			},
+			// validate form
 
-		validationSchema: Yup.object().shape({
-			projectName: Yup.string().required('required'),
-			id: Yup.string().required('required'),
-			email: Yup.string().email('invalid email').required('required'),
-			phoneNumber: Yup.string()
-				.matches(phoneRegExp, 'Phone number is not valid')
-				.required('required'),
-			contactName: Yup.string().required('required'),
-			projectValue: Yup.string().required('required'),
-			
-		}),
+			validationSchema: Yup.object().shape({
+				projectName: Yup.string().required('required'),
+				id: Yup.string().required('required'),
+				email: Yup.string()
+					.email('invalid email')
+					.required('required'),
+				phoneNumber: Yup.string()
+					.matches(phoneRegExp, 'Phone number is not valid')
+					.required('required'),
+				Assignee: Yup.string().required('required'),
+				contactName: Yup.string().required('required'),
+				projectValue: Yup.string().required('required'),
+				projectPriority: Yup.string().required('required'),
+        projectDescription: Yup.string().required('required'),
+			}),
 
-	// submit form
-	
-		onSubmit: (values) => {
-			console.log(values);
-			addProject(values);
-			formik.resetForm();
-			getProjects()
+			// submit form
 
-		
-		},
-
-	
-});
+			onSubmit: (values) => {
+				console.log(values);
+				addProject(values);
+				formik.resetForm();
+				getProjects();
+				setId('');
+			},
+		});
 	
   return (
 		<ColorModeContext.Provider value={colorMode}>
@@ -101,9 +97,9 @@ function App() {
 								element={
 									<ProjectForm
 										formik={formik}
-										handleAddProject={handleAddProject}/>}/>
+										id={id} setId={setId}
+										/>}/>
 							<Route path='/project-list' element={<ProjectList getProjects={getProjects}/>}/>
-							{/* <Route path='/calendar' element={<Calendar />} /> */}
 						</Routes>
 					</main>
 				</div>
