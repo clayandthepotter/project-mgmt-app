@@ -21,7 +21,7 @@ const Dashboard = () => {
 	}, []);
 
 	return (
-		<Box m='20px'>
+		<Box mx='20px'>
 			<Header
 				title='PROJECT DASHBOARD'
 				subtitle='Your projects at a glance'

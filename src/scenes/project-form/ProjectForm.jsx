@@ -15,14 +15,14 @@ const ProjectForm = ({ formik, id, setId }) => {
 
 	
 	return (
-		<Box m='20px'>
+		<Box mx='20px'>
 			<Header title='PROJECT FORM' subtitle='Create a New Project' />
 
 			<Formik>
 				<form onSubmit={formik.handleSubmit}>
 					<Box
 						display='grid'
-						gap='30px'
+						gap='25px'
 						gridTemplateColumns='repeat(4, minmax(0, 1fr))'
 					>
 						<TextField
@@ -67,7 +67,7 @@ const ProjectForm = ({ formik, id, setId }) => {
 								)
 							}
 						>
-							Create Id
+							Generate Id
 						</Button>
 						<TextField
 							required

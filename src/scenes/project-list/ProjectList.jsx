@@ -42,8 +42,8 @@ const ProjectList = () => {
   ];
 
   return (
-		<Box m='20px'>
-			<Header title='PROJECTS' subtitle='Manage your projects' />
+		<Box mx='20px'>
+			<Header title='PROJECT LIST' subtitle='Manage your projects' />
 			{/* <Box display="flex" justifyContent="end" mt="20px">
         <Button type="submit" color="secondary" variant="contained">
           Delete

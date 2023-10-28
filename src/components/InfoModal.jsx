@@ -30,7 +30,9 @@ export default function InfoModal({ contactName, email, assignee, projectDescrip
 			</Button>
 			<Modal open={open} onClose={handleClose}>
 				<Box sx={style}>
-					<Typography sx={{ fontSize: '18px', fontWeight: 'bold' }}>
+					<Typography
+						sx={{ fontSize: '18px', fontWeight: 'bold', mb: 1 }}
+					>
 						Contact
 					</Typography>
 					<Typography
@@ -43,9 +45,11 @@ export default function InfoModal({ contactName, email, assignee, projectDescrip
 					>
 						<em>Email:</em> {email}
 					</Typography>
-          <hr/>
+					<hr />
 					<br />
-					<Typography sx={{ fontSize: '18px', fontWeight: 'bold' }}>
+					<Typography
+						sx={{ fontSize: '18px', fontWeight: 'bold', mb: 1 }}
+					>
 						Assignee
 					</Typography>
 					<Typography
@@ -53,13 +57,15 @@ export default function InfoModal({ contactName, email, assignee, projectDescrip
 					>
 						{assignee}
 					</Typography>
-          <hr/>
+					<hr />
 					<br />
-					<Typography sx={{ fontSize: '18px', fontWeight: 'bold' }}>
+					<Typography
+						sx={{ fontSize: '18px', fontWeight: 'bold', mb: 1 }}
+					>
 						Project Description
 					</Typography>
 					<Typography
-						sx={{ fontSize: '14px', color: colors.grey[200], my: 1 }}
+						sx={{ fontSize: '14px', color: colors.grey[200] }}
 					>
 						{projectDescription}
 					</Typography>
